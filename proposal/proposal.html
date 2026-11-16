@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Project Proposal</title>
+<style>
+  @page { size: A4; margin: 16mm 16mm 14mm 16mm; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 10pt; line-height: 1.38; color: #1d1d1f; }
+  h1 { font-size: 17pt; margin: 0 0 2px; }
+  .sub { color: #555; margin: 0 0 10px; font-size: 9.5pt; }
+  h2 { font-size: 10.5pt; margin: 10px 0 3px; color: #0b5d4b; }
+  p, li { margin: 0 0 4px; }
+  ul { margin: 0 0 4px 0; padding-left: 16px; }
+  .extra { border-top: 1px solid #ccc; margin-top: 12px; padding-top: 6px; font-size: 9pt; color: #333; }
+  .extra h2 { color: #333; }
+  code { font-family: Consolas, monospace; font-size: 9pt; }
+</style></head><body>
+
+<h1>Reminiscence Session</h1>
+<p class="sub">UGREEN Hackathon 2026 on AI NAS · Track: Bring Memories to Life · Skill package: <code>reminiscence-session</code></p>
+
+<div id="answers">
+<h2>1. What does your Skill do?</h2>
+<p>It turns family photos and music already on a UGREEN NAS into personal reminiscence sessions for someone living with dementia, and learns from each session what brings joy or distress.</p>
+
+<h2>2. Who is the target user, and what is their problem?</h2>
+<p>Family carers of people with dementia. In an elder care home, I watched a quiet resident with Alzheimer's light up and sing along to an old song from her youth. Moments like that need the right song or photo, but finding them means digging through decades of photos, matching songs to eras, and remembering what upset the person last time. Carers are exhausted; the material sits unused.</p>
+
+<h2>3. What is your solution?</h2>
+<p>A Skill with three modes. <b>Prepare</b> builds a session around a person, years or a place: photos, dignity-safe captions, songs from the person's youth, conversation openers, an album and a memory book. <b>Play</b> starts the music. <b>Log</b> turns the carer's voice note into a care-journal entry that shapes the next session.</p>
+
+<h2>4. What is the main user flow?</h2>
+<p>"Make a session for Mum, born 1950, about Jean, 1970 to 1979, 12 photos." The Skill reads past journal entries, finds Jean's photos, captions them, picks songs released 1960–1975, creates an album after approval and saves the book. Afterwards the carer records: "She loved that song, got upset at Arthur." Next time Arthur is left out and that song comes first.</p>
+
+<h2>5. How is your idea different from existing tools or common AI solutions?</h2>
+<p>Photo "memories" features are random and forgetful. This follows care practice: music from the person's teens and twenties, captions that never quiz, an honoured avoid list. It closes a feedback loop across sessions, combines four NAS experts, and keeps private family and health-related notes at home.</p>
+
+<h2>6. Which UGREEN AI NAS features does your Skill use, and at which step?</h2>
+<ul>
+<li>Journal: ug-filesystem <code>find</code>/<code>cat</code>.</li>
+<li>People and photos: ug-photo <code>figure-albums</code>, <code>search-picture</code>.</li>
+<li>Captions: <code>vision-vlm</code>, local model preferred, metadata fallback.</li>
+<li>Music: ug-music <code>search</code> by year, <code>control</code>.</li>
+<li>Outputs: <code>create-album</code>; ug-knowledge <code>save-text</code>, <code>audio-transcription</code>.</li>
+</ul>
+
+<h2>7. What is your technical approach?</h2>
+<p>A pure orchestration SKILL.md (Uliya standard). The parent only delegates self-contained instructions to four registered experts; later steps use only verified earlier results. Inputs include birth year, explicit years and an avoid list. Writes wait for platform approval; music never auto-plays. All five delegation states are handled; empty or partial results are reported without widening scope or inventing data.</p>
+
+<h2>8. What have you built so far? What is not built yet? What still needs testing on a NAS?</h2>
+<p><b>Built:</b> complete SKILL.md and four references, passing the kit's static checker with no errors or warnings. <b>Not yet:</b> any real NAS run. <b>Needs NAS testing:</b> whether vision-vlm accepts search-picture paths, music result fields, approval flow, caption quality.</p>
+
+<h2>9. How will you test your Skill if you become a Finalist?</h2>
+<ul>
+<li><b>Core 1:</b> first session, synthetic family: 12 captioned 1970s photos of Jean, 1960–1975 songs, approved album, verified saved book.</li>
+<li><b>Core 2:</b> log "loved song A, upset by Arthur", prepare again: Arthur excluded, song A first, reason given.</li>
+<li><b>Edge:</b> years 1940–1945 plus an unnamed person: exact "no matches", no widening, nothing created.</li>
+</ul>
+
+<h2>10. What are the known limits, risks, or outside dependencies?</h2>
+<p>It needs people named in the photo app and music with release years. Vision may refuse some paths; shorter captions are used instead. It is not medical software: no diagnosis, monitoring or alerts. Carers confirm transcripts before logging. Testing uses synthetic data only.</p>
+</div>
+
+<div class="extra">
+<h2>Third-party components, licenses and AI tools (excluded from word count)</h2>
+<p><b>Bundled third-party code, libraries, models or media:</b> none. The package contains only Markdown files.
+<b>Platform:</b> UGREEN Uliya Skill Development Standard and UGOS Skill Creation Tool (uliya-skill-kit 0.7.7), used under UGREEN's developer terms, with NAS experts from public capability catalog 2.2.0.
+<b>External services and data flows:</b> none added. All processing is delegated to UGOS experts on the NAS.
+<b>AI tools:</b> Claude Code (Anthropic) was used to read the kit and catalog, draft the SKILL.md, references and this proposal, and run the static checker. The entrant chose the idea and direction and reviewed the result.</p>
+</div>
+</body></html>

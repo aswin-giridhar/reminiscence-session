@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Flow</title>
+<style>
+  html,body{margin:0;width:1500px;height:1000px;background:#faf6ef;font-family:"Segoe UI",Arial,sans-serif;color:#1f2a2e}
+  .wrap{padding:56px 56px;height:1000px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}
+  h1{margin:0;font-size:52px;letter-spacing:-.5px}
+  .sub{margin:8px 0 0;font-size:24px;color:#5b6468}
+  .row{display:flex;gap:18px;align-items:stretch}
+  .card{flex:1;background:#fff;border-radius:18px;padding:26px 22px 24px;box-shadow:0 2px 0 #e7dfd2;border-top:7px solid var(--c)}
+  .n{font-size:15px;font-weight:700;color:var(--c);text-transform:uppercase;letter-spacing:1px}
+  .t{font-size:26px;font-weight:700;margin:6px 0 8px}
+  .d{font-size:19px;line-height:1.4;color:#3d474b}
+  .a{display:inline-block;margin-top:10px;font-family:Consolas,monospace;font-size:13.5px;background:#f3efe7;border-radius:6px;padding:3px 7px;color:#4a5356}
+  .arrow{align-self:center;font-size:30px;color:#b9ad99}
+  .loop{margin:0;background:#0f5c4c;color:#fff;border-radius:18px;padding:22px 28px;display:flex;gap:28px;align-items:center}
+  .loop b{font-size:24px}
+  .loop .d{color:#d8ece6;font-size:18px}
+  .foot{display:flex;gap:16px;flex-wrap:wrap}
+  .pill{background:#fff;border-radius:999px;padding:12px 20px;font-size:19px;box-shadow:0 2px 0 #e7dfd2}
+  .pill b{color:#0f5c4c}
+</style></head><body><div class="wrap">
+<div><h1>Reminiscence Session</h1>
+<div class="sub">The family's own photos and music on the NAS, turned into a gentle memory session that gets better every time.</div></div>
+
+<div class="row">
+  <div class="card" style="--c:#8a6d3b"><div class="n">1 · Remember</div><div class="t">Read care journal</div>
+    <div class="d">Past "loved it" and "upset" notes plus the avoid list</div><span class="a">file-agent · find / cat</span></div>
+  <div class="arrow">→</div>
+  <div class="card" style="--c:#c0623a"><div class="n">2 · Find</div><div class="t">Familiar photos</div>
+    <div class="d">Named people, carer-confirmed years, places; avoid list removed</div><span class="a">photo-agent · search-picture</span></div>
+  <div class="arrow">→</div>
+  <div class="card" style="--c:#b0487a"><div class="n">3 · Caption</div><div class="t">Warm, never quizzing</div>
+    <div class="d">"Jean at the seaside, 1974." Falls back to names and dates</div><span class="a">photo-agent · vision-vlm</span></div>
+  <div class="arrow">→</div>
+  <div class="card" style="--c:#5a55b5"><div class="n">4 · Music</div><div class="t">Songs from age 10–25</div>
+    <div class="d">Release years [b+10, b+25], the reminiscence bump</div><span class="a">media-agent · ug-music</span></div>
+  <div class="arrow">→</div>
+  <div class="card" style="--c:#2d7f9a"><div class="n">5 · Save</div><div class="t">Album + memory book</div>
+    <div class="d">Only after platform approval; verified file path</div><span class="a">photo / knowledge-agent</span></div>
+</div>
+
+<div class="loop">
+  <div style="font-size:54px">↺</div>
+  <div><b>Log: the feedback loop</b>
+  <div class="d">After the session the carer records a voice note: "She loved that song, got upset at Arthur." It is transcribed, the carer confirms it, and it is saved as a care-journal entry. Next time Arthur is left out and that song comes first.</div>
+  <span class="a" style="background:#1d7462;color:#e6f4ef">knowledge-agent · audio-transcription → save-text</span></div>
+</div>
+
+<div class="foot">
+  <div class="pill"><b>Private:</b> nothing leaves the NAS</div>
+  <div class="pill"><b>Safe:</b> every write waits for approval</div>
+  <div class="pill"><b>Honest:</b> no matches = says so, never invents</div>
+  <div class="pill"><b>Not medical:</b> no diagnosis or monitoring</div>
+</div>
+</div></body></html>
