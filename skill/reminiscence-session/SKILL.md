@@ -145,6 +145,8 @@ Safety: no diagnosis, no medical claims, no monitoring. Everything stays on the 
 
 # References
 
+- [README](references/readme.md): install, setup, removal, testing, dependencies and versions.
+- [Configuration template](references/configuration-template.md): the inputs a carer provides, with placeholders.
 - [Session design rules](references/session-design.md): caption, dignity, music and layout rules.
 - [Care journal format](references/care-journal-format.md): how feedback is stored and read back.
 - [Test plan](references/test-plan.md): core and edge tests using synthetic data.

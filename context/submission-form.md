@@ -35,7 +35,7 @@ Turns the family photos and music already on your UGREEN NAS into personal remin
 
 - **Track:** Bring Memories to Life.
 - **Proposal PDF:** `submission/proposal.pdf` (69 KB; answers total 468-496 words depending on counting method, limit 500).
-- **Pre-test Skill Package ZIP:** `submission/reminiscence-session.zip` (9 KB, 5 Markdown files, kit checker reports static-pass with 0 errors and 0 warnings).
+- **Pre-test Skill Package ZIP:** `submission/reminiscence-session.zip` (12 KB, 7 Markdown files incl. README and configuration template, kit checker reports static-pass with 0 errors and 0 warnings).
 - **Disclose AI tools:** Claude Code (drafting and checking) and Runware FLUX.1 dev (thumbnail image only).
 
 ## Project story

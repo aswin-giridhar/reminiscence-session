@@ -37,7 +37,7 @@ The Skill is a pure orchestration `SKILL.md` that follows the **Uliya Skill Deve
 
 | Path | Contents |
 |---|---|
-| [`skill/reminiscence-session/`](skill/reminiscence-session/) | **The Skill**: [`SKILL.md`](skill/reminiscence-session/SKILL.md) plus `references/` (session design rules, care-journal format, test plan, disclosures) |
+| [`skill/reminiscence-session/`](skill/reminiscence-session/) | **The Skill**: [`SKILL.md`](skill/reminiscence-session/SKILL.md) plus `references/` (README, configuration template, session design rules, care-journal format, test plan, disclosures) |
 | [`submission/`](submission/) | The files uploaded to Devpost: `reminiscence-session.zip` (Skill package) and `proposal.pdf` (project proposal) |
 | [`proposal/`](proposal/) | HTML source for the proposal PDF and the workflow diagram |
 | [`context/`](context/) | Project notes: story, submission-form text, kit findings, decision log, images |
@@ -45,7 +45,7 @@ The Skill is a pure orchestration `SKILL.md` that follows the **Uliya Skill Deve
 ## Validation status
 
 - ✅ Passes the static checker from UGREEN's Skill Developer Package (`static-pass`, 0 errors, 0 warnings, catalog 2.2.0).
-- ✅ Package limits: 5 Markdown files, 9 KB zipped; no scripts, binaries or credentials.
+- ✅ Package limits: 7 Markdown files, about 12 KB zipped; no scripts, binaries or credentials.
 - ⏳ **Not yet run on a real NAS.** Round 1 doesn't require it. The points to test on a NAS, such as `vision-vlm` on searched photo paths, music result fields and the approval flow, are listed in the [test plan](skill/reminiscence-session/references/test-plan.md).
 
 To re-run the static check, download the Skill Developer Package from UGREEN's [hackathon starter kit page](https://ai.ugreen.com/pages/hackathon-starter-kit) (it isn't redistributed here), then run:
